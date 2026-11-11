@@ -1,0 +1,123 @@
+/* ==========================================================================
+   PROFILE.CSS - Institutional Profile & Kelompok Jabatan Fungsional
+   ========================================================================== */
+
+.profile-section {
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: var(--space-12);
+  align-items: start;
+}
+
+.profile-subtitle {
+  font-size: var(--text-lg);
+  color: var(--color-muted);
+  margin-bottom: var(--space-8);
+}
+
+/* Institutional Metadata Summary Card */
+.profile-meta-card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-primary);
+  border-radius: var(--radius-sm);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.meta-item:not(:last-child) {
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.meta-label {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-muted);
+}
+
+.meta-value {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+/* Profile Main Narrative */
+.profile-body {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-subtle);
+}
+
+.profile-body p {
+  font-size: var(--text-base);
+  color: var(--color-text);
+  line-height: 1.8;
+  max-width: 65ch;
+}
+
+.profile-body p + p {
+  margin-top: var(--space-5);
+}
+
+/* Kelompok Jabatan Fungsional (Section E) */
+.jft-section {
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.jft-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-8);
+  align-items: start;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-10);
+  box-shadow: var(--shadow-subtle);
+}
+
+.jft-icon-wrapper {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.jft-content {
+  max-width: 780px;
+}
+
+.jft-content p {
+  font-size: var(--text-base);
+  color: var(--color-text);
+  line-height: 1.75;
+}
+
+.jft-content p + p {
+  margin-top: var(--space-4);
+}
+

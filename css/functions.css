@@ -1,0 +1,57 @@
+/* ==========================================================================
+   FUNCTIONS.CSS - Tugas dan Fungsi (13 Mandate Functions)
+   ========================================================================== */
+
+.functions-section {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.functions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+}
+
+.function-card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  transition: border-color var(--transition-base), background-color var(--transition-base);
+}
+
+.function-card:hover {
+  border-color: var(--color-secondary);
+  background-color: var(--color-white);
+}
+
+/* Span full width on odd 13th item for balanced symmetry on 2-column grid */
+.function-card:last-child {
+  grid-column: 1 / -1;
+}
+
+.function-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 36px;
+  padding: 0 var(--space-2);
+  background-color: var(--color-accent);
+  color: var(--color-primary);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+
+.function-text {
+  font-size: var(--text-base);
+  color: var(--color-text);
+  line-height: 1.65;
+}
+
