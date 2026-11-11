@@ -46,7 +46,7 @@
   font-weight: 600;
 }
 
-/* Table Container */
+
 .table-wrapper {
   width: 100%;
   overflow-x: auto;
@@ -122,7 +122,7 @@
   color: var(--color-white);
 }
 
-/* Working Area Map Figure & Hover Zoom Interaction */
+
 .map-container {
   background-color: var(--color-bg);
   border: 1px solid var(--color-border);
