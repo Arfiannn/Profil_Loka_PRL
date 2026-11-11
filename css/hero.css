@@ -1,6 +1,12 @@
-/* ==========================================================================
-   HERO.CSS - Hero Section Layout and Visual Styling
-   ========================================================================== */
+@keyframes heroFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
 
 .hero-section {
   background-color: var(--color-white);
@@ -19,6 +25,10 @@
   max-width: 620px;
 }
 
+.hero-content .section-badge {
+  animation: fadeInUp 0.55s ease-out 0.05s both;
+}
+
 .hero-title {
   font-size: var(--text-4xl);
   font-weight: 700;
@@ -27,6 +37,7 @@
   margin-top: var(--space-3);
   margin-bottom: var(--space-6);
   letter-spacing: -0.015em;
+  animation: fadeInUp 0.6s ease-out 0.12s both;
 }
 
 .hero-description {
@@ -34,6 +45,7 @@
   color: var(--color-muted);
   line-height: 1.7;
   margin-bottom: var(--space-8);
+  animation: fadeInUp 0.6s ease-out 0.2s both;
 }
 
 .hero-actions {
@@ -41,11 +53,13 @@
   flex-wrap: wrap;
   align-items: center;
   gap: var(--space-4);
+  animation: fadeInUp 0.6s ease-out 0.28s both;
 }
 
-/* Supporting Visual */
+/* Supporting Visual with Subtle Floating & Hover Zoom */
 .hero-visual {
   width: 100%;
+  animation: fadeInUp 0.7s ease-out 0.18s both;
 }
 
 .hero-figure {
@@ -53,7 +67,14 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   overflow: hidden;
-  box-shadow: var(--shadow-subtle);
+  box-shadow: var(--shadow-card);
+  animation: heroFloat 6s ease-in-out infinite;
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.hero-figure:hover {
+  border-color: var(--color-border-hover);
+  box-shadow: var(--shadow-card-hover);
 }
 
 .hero-image {
@@ -61,5 +82,9 @@
   height: auto;
   aspect-ratio: 3 / 2;
   object-fit: cover;
+  transition: transform 0.45s ease;
 }
 
+.hero-figure:hover .hero-image {
+  transform: scale(1.035);
+}

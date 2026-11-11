@@ -1,6 +1,13 @@
-/* ==========================================================================
-   FUNCTIONS.CSS - Tugas dan Fungsi (13 Mandate Functions)
-   ========================================================================== */
+@keyframes detailsOpen {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 .functions-section {
   background-color: var(--color-white);
@@ -10,28 +17,52 @@
 .functions-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-6);
+  gap: var(--space-5);
+  align-items: start;
+}
+
+.function-item:last-child {
+  grid-column: 1 / -1;
 }
 
 .function-card {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-4);
   background-color: var(--color-bg);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  padding: var(--space-6);
-  transition: border-color var(--transition-base), background-color var(--transition-base);
+  box-shadow: var(--shadow-subtle);
+  overflow: hidden;
+  transition:
+    transform var(--transition-base),
+    border-color var(--transition-base),
+    background-color var(--transition-base),
+    box-shadow var(--transition-base);
 }
 
 .function-card:hover {
-  border-color: var(--color-secondary);
+  transform: translateY(-3px);
+  border-color: var(--color-border-hover);
   background-color: var(--color-white);
+  box-shadow: var(--shadow-card-hover);
 }
 
-/* Span full width on odd 13th item for balanced symmetry on 2-column grid */
-.function-card:last-child {
-  grid-column: 1 / -1;
+.function-card[open] {
+  background-color: var(--color-white);
+  border-color: var(--color-border-hover);
+}
+
+/* Summary Interactive Header */
+.function-summary {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-5) var(--space-6);
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+.function-summary::-webkit-details-marker {
+  display: none;
 }
 
 .function-number {
@@ -47,11 +78,72 @@
   font-weight: 700;
   border-radius: var(--radius-sm);
   flex-shrink: 0;
+  transition: background-color var(--transition-base), color var(--transition-base), transform var(--transition-base);
+}
+
+.function-card:hover .function-number,
+.function-card[open] .function-number {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.function-title {
+  flex: 1;
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--color-primary);
+  line-height: 1.45;
+  transition: color var(--transition-base);
+}
+
+.function-card:hover .function-title {
+  color: var(--color-secondary);
+}
+
+/* Rotating Arrow Indicator */
+.function-arrow {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform var(--transition-base), border-color var(--transition-base), background-color var(--transition-base);
+}
+
+.function-arrow::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-right: 2px solid var(--color-primary);
+  border-bottom: 2px solid var(--color-primary);
+  transform: translateY(-1.5px) rotate(45deg);
+  transition: border-color var(--transition-base);
+}
+
+.function-card:hover .function-arrow {
+  border-color: var(--color-border-hover);
+}
+
+.function-card[open] .function-arrow {
+  transform: rotate(180deg);
+  background-color: var(--color-accent);
+  border-color: var(--color-border-hover);
+}
+
+/* Collapsible Body Content */
+.function-body {
+  padding: 0 var(--space-6) var(--space-6) calc(var(--space-6) + 36px + var(--space-4));
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-4);
+  animation: detailsOpen 0.25s ease-out;
 }
 
 .function-text {
   font-size: var(--text-base);
   color: var(--color-text);
-  line-height: 1.65;
+  line-height: 1.7;
 }
-

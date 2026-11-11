@@ -1,13 +1,10 @@
-/* ==========================================================================
-   NAVBAR.CSS - Header and Navigation Bar Styling
-   ========================================================================== */
-
 .site-header {
   position: sticky;
   top: 0;
   z-index: 100;
   background-color: var(--color-white);
   border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-subtle);
 }
 
 .navbar-container {
@@ -30,6 +27,11 @@
   width: 42px;
   height: 42px;
   object-fit: contain;
+  transition: transform var(--transition-base);
+}
+
+.navbar-brand:hover .navbar-logo {
+  transform: scale(1.04);
 }
 
 .navbar-identity {
@@ -42,6 +44,11 @@
   font-weight: 700;
   color: var(--color-primary);
   line-height: 1.25;
+  transition: color var(--transition-base);
+}
+
+.navbar-brand:hover .navbar-title {
+  color: var(--color-secondary);
 }
 
 .navbar-subtitle {
@@ -50,7 +57,7 @@
   font-weight: 500;
 }
 
-/* Navigation Links & CTA */
+/* Navigation Links & Left-to-Right Underline Animation */
 .navbar-nav {
   display: flex;
   align-items: center;
@@ -64,15 +71,36 @@
 }
 
 .navbar-link {
+  position: relative;
   font-size: var(--text-sm);
   font-weight: 500;
   color: var(--color-text);
   padding: var(--space-2) 0;
+  transition: color var(--transition-base);
+}
+
+.navbar-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-secondary);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--transition-base);
 }
 
 .navbar-link:hover,
 .navbar-link:focus-visible {
   color: var(--color-secondary);
+}
+
+.navbar-link:hover::after,
+.navbar-link:focus-visible::after {
+  transform: scaleX(1);
 }
 
 /* Mobile Toggle Checkbox (Hidden on Desktop) */
@@ -91,6 +119,12 @@
   cursor: pointer;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
+  transition: border-color var(--transition-base), background-color var(--transition-base);
+}
+
+.nav-toggle-label:hover {
+  border-color: var(--color-secondary);
+  background-color: var(--color-bg);
 }
 
 .hamburger-line {
@@ -100,4 +134,3 @@
   background-color: var(--color-primary);
   transition: transform var(--transition-base), opacity var(--transition-base);
 }
-

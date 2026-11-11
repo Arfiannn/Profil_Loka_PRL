@@ -1,10 +1,49 @@
-/* ==========================================================================
-   WILAYAH.CSS - Satuan Pelayanan, Tabel Wilayah Kerja, dan Peta
-   ========================================================================== */
-
 .wilayah-section {
   background-color: var(--color-white);
   border-bottom: 1px solid var(--color-border);
+}
+
+/* Satuan Pelayanan Cards Grid */
+.satpel-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+  margin-bottom: var(--space-8);
+}
+
+.satpel-card {
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-subtle);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  transition:
+    transform var(--transition-base),
+    border-color var(--transition-base),
+    background-color var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.satpel-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-border-hover);
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.satpel-coverage {
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  line-height: 1.65;
+}
+
+.satpel-coverage strong {
+  color: var(--color-primary);
+  font-weight: 600;
 }
 
 /* Table Container */
@@ -16,6 +55,12 @@
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-subtle);
   margin-bottom: var(--space-12);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.table-wrapper:hover {
+  border-color: var(--color-border-hover);
+  box-shadow: var(--shadow-card-hover);
 }
 
 .wilayah-table {
@@ -42,6 +87,10 @@
   border-bottom: none;
 }
 
+.wilayah-table tbody tr {
+  transition: background-color var(--transition-base);
+}
+
 .wilayah-table tbody tr:last-child td {
   border-bottom: none;
 }
@@ -64,15 +113,32 @@
   font-weight: 600;
   padding: var(--space-1) var(--space-3);
   border-radius: var(--radius-sm);
+  transition: background-color var(--transition-base), color var(--transition-base);
 }
 
-/* Working Area Map Figure */
+.satpel-card:hover .satpel-badge,
+.wilayah-table tbody tr:hover .satpel-badge {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* Working Area Map Figure & Hover Zoom Interaction */
 .map-container {
   background-color: var(--color-bg);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   padding: var(--space-6);
   box-shadow: var(--shadow-subtle);
+  transition:
+    transform var(--transition-base),
+    border-color var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.map-container:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-border-hover);
+  box-shadow: var(--shadow-card-hover);
 }
 
 .map-image-frame {
@@ -85,6 +151,11 @@
 .map-image {
   width: 100%;
   height: auto;
+  transition: transform 0.5s ease;
+}
+
+.map-image-frame:hover .map-image {
+  transform: scale(1.025);
 }
 
 .map-caption {
@@ -94,4 +165,3 @@
   text-align: center;
   font-weight: 500;
 }
-

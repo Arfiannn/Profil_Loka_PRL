@@ -1,7 +1,3 @@
-/* ==========================================================================
-   SERVICES.CSS - Layanan LPRL Sorong Cards and CTA
-   ========================================================================== */
-
 .services-section {
   background-color: var(--color-bg);
 }
@@ -21,13 +17,29 @@
   display: flex;
   flex-direction: column;
   box-shadow: var(--shadow-subtle);
-  transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
+  animation: fadeInUp 0.6s ease-out both;
+  transition:
+    transform var(--transition-base),
+    border-color var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.service-card:nth-child(1) {
+  animation-delay: 0.08s;
+}
+
+.service-card:nth-child(2) {
+  animation-delay: 0.16s;
+}
+
+.service-card:nth-child(3) {
+  animation-delay: 0.24s;
 }
 
 .service-card:hover {
-  transform: translateY(-2px);
-  border-color: var(--color-secondary);
-  box-shadow: var(--shadow-card);
+  transform: translateY(-4px);
+  border-color: var(--color-border-hover);
+  box-shadow: var(--shadow-card-hover);
 }
 
 .service-icon-box {
@@ -39,6 +51,12 @@
   align-items: center;
   justify-content: center;
   margin-bottom: var(--space-6);
+  transition: transform var(--transition-base), background-color var(--transition-base);
+}
+
+.service-card:hover .service-icon-box {
+  transform: translateY(-2px) scale(1.06);
+  background-color: #cde6f0;
 }
 
 .service-title {
@@ -47,6 +65,11 @@
   color: var(--color-primary);
   margin-bottom: var(--space-3);
   line-height: 1.35;
+  transition: color var(--transition-base);
+}
+
+.service-card:hover .service-title {
+  color: var(--color-secondary);
 }
 
 .service-description {
@@ -58,5 +81,5 @@
 .services-cta {
   display: flex;
   justify-content: flex-start;
+  animation: fadeInUp 0.6s ease-out 0.3s both;
 }
-

@@ -1,7 +1,3 @@
-/* ==========================================================================
-   PROFILE.CSS - Institutional Profile & Kelompok Jabatan Fungsional
-   ========================================================================== */
-
 .profile-section {
   background-color: var(--color-bg);
   border-bottom: 1px solid var(--color-border);
@@ -12,6 +8,10 @@
   grid-template-columns: 0.9fr 1.1fr;
   gap: var(--space-12);
   align-items: start;
+}
+
+.profile-header {
+  animation: fadeInUp 0.6s ease-out both;
 }
 
 .profile-subtitle {
@@ -31,6 +31,17 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
+  transition:
+    transform var(--transition-base),
+    border-color var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.profile-meta-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-border-hover);
+  border-left-color: var(--color-secondary);
+  box-shadow: var(--shadow-card-hover);
 }
 
 .meta-item {
@@ -65,6 +76,17 @@
   border-radius: var(--radius-md);
   padding: var(--space-8);
   box-shadow: var(--shadow-subtle);
+  animation: fadeInUp 0.65s ease-out 0.1s both;
+  transition:
+    transform var(--transition-base),
+    border-color var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.profile-body:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-border-hover);
+  box-shadow: var(--shadow-card-hover);
 }
 
 .profile-body p {
@@ -94,6 +116,17 @@
   border-radius: var(--radius-md);
   padding: var(--space-10);
   box-shadow: var(--shadow-subtle);
+  animation: fadeInUp 0.6s ease-out both;
+  transition:
+    transform var(--transition-base),
+    border-color var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.jft-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-border-hover);
+  box-shadow: var(--shadow-card-hover);
 }
 
 .jft-icon-wrapper {
@@ -105,6 +138,12 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  transition: transform var(--transition-base), background-color var(--transition-base);
+}
+
+.jft-card:hover .jft-icon-wrapper {
+  transform: translateY(-2px) scale(1.04);
+  background-color: #cde6f0;
 }
 
 .jft-content {
@@ -120,4 +159,3 @@
 .jft-content p + p {
   margin-top: var(--space-4);
 }
-
